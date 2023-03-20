@@ -60,6 +60,14 @@
             display: flex;
             align-items: center;
         }
+        .background{
+            width: 100%;
+            height: 100vh;
+            background: url('https://img2.storyblok.com//f/64062/3750x1969/ced13f19fe/early-admits-student-panel.png')no-repeat;
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px);
+        }
         .search-bar input{
             width: 100%;
             background: transparent;
@@ -94,15 +102,173 @@
             transform: translate(-50%,-50%);
             width: 75%;
             height: 550px;
-            background: url('https://scontent-tir2-1.xx.fbcdn.net/v/t39.30808-6/294080669_454386600028888_1066491316575420658_n.jpg?stp=dst-jpg_p960x960&_nc_cat=107&ccb=1-7&_nc_sid=e3f864&_nc_ohc=Xzrs3z7M_4EAX-n8jIY&_nc_ht=scontent-tir2-1.xx&oh=00_AfDSaJsiwTg1poeQzJEqBvXfH1wm4fHpPtOX-IhfS5hFQQ&oe=641A5AB5')no-repeat;
+            background: url('https://img2.storyblok.com//f/64062/3750x1969/ced13f19fe/early-admits-student-panel.png')no-repeat;
             background-size: cover;
             background-position: center;
             border-radius: 10px;
             margin-top: 20px;
         }
         .container .content{
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 58%;
             height: 100%;
+            background: transparent;
+            padding: 80px;
+            color: #e4e4e4;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        .content .logo{
+            font-size: 30px;
+        }
+        .text-sci h2{
+            font-size: 40px;
+            line-height: 1;
+        }
+        .text-sci h2 span{
+            font-size: 25px;
+        }
+        .text-sci p{
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .social-icons a i{
+            font-size: 22px;
+            color: #e4e4e4;
+            margin-right: 10px;
+            transition: .5s ease;
+        }
+        .social-icons a:hover i{
+            transform: scale(1.2);
+        }
+        .container .logreg-box{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: calc(100% - 58%);
+            height: 100%;
+            overflow: hidden;
+        }
+        .logreg-box .form-box{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            backdrop-filter: blur(20px);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            color: #e4e4e4;
+        }
+        .logreg-box .form-box.login{
+            transform: translateX(0);
+            transition: transform .6s ease;
+            transition-delay: .7s;
+        }
+        .logreg-box.active .form-box.login{
+            transform: translateX(430px);
+            transition-delay: 0s;
+        }
+        .logreg-box .form-box.register{
+            transform: translateX(430px);
+            transition: transform .5s ease;
+            transition-delay: 0s;
+        }
+        .logreg-box.active .form-box.register{
+            transform: translateX(0);
+            transition-delay: .7s;
+        }
+        .form-box h2{
+            font-size: 32px;
+            text-align: center;
+        }
+        .form-box .input-box{
+            position: relative;
+            width: 340px;
+            height: 50px;
+            border-bottom: 2px solid #e4e4e4;
+            margin: 30px 0;
+        }
+        .input-box input{
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #e4e4e4;
+            font-weight: 500;
+            padding-right: 28px;
+        }
+        .input-box label{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-weight: 500;
+            pointer-events: none;
+            transition: .5s ease;
+        }
+        .input-box input:focus~label,
+        .input-box input:valid~label{
+            top: -5px;
+        }
+        .input-box .icon{
+            position: absolute;
+            top: 13px;
+            right: 0;
+            font-size: 19px;
+        }
+        .form-box .remember-forgot{
+            font-size: 14.5px;
+            font-weight: 500;
+            margin: -15px 0 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .remember-forgot label input{
+            accent-color: #e4e4e4;
+            margin-right: 3px;
+        }
+        .remember-forgot a{
+            color: #e4e4e4;
+            text-decoration: none;
+        }
+        .remember-forgot a:hover{
+            text-decoration: underline;
+        }
+        .btn{
+            width: 100%;
+            height: 45px;
+            background: #c4103d;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #e4e4e4;
+            font-weight: 500;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .form-box .login-register{
+            font-size: 14.5px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 25px;
+        }
+        .login-register p a{
+            color: #e4e4e4;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .login-register p a:hover{
+            text-decoration: underline;
         }
     </style>
     <body>
@@ -118,8 +284,82 @@
                 <button type="submit"><i class='bx bx-search'></i></button>
             </form>
         </header>
-        <div class="container"></div>
-        <div class="content"></div>
-        <div class="logreg-box"></div>
+        <div class="background"></div>
+        <div class="container">
+        <div class="content">
+            <h2 class="logo"><i class='bx bxs-graduation'></i>KSRCE</h2>
+            <div class="text-sci">
+                <h2>Welcome!<br><span>To our college</span></h2>
+                <p> <b>“Opportunities don’t happen.You create them.”</b></p>
+            <div class="social-icons">
+                <a href="#"><i class='bx bxl-linkedin' ></i></i></a>
+                <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+                <a href="#"><i class='bx bxl-instagram' ></i></a>
+                <a href="#"><i class='bx bxl-twitter' ></i></a>
+            </div>
+            </div>
+        </div>
+        <div class="logreg-box">
+        <div class="form-box login">
+        <form action="#">
+            <h2>Sign In</h2>
+            <div class="input-box">
+                <span class="icon"><i class='bx bxl-gmail' ></i></span>
+                <input type="email"required>
+                <label>Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                <input type="password"required>
+                <label>Password</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit"class="btn">Sign In</button>
+            <div class="login-register">
+                <p>Don't have an account?
+                    <a href="#" class="register-link">Sign up</a>
+                </p>
+            </div>
+        </form>
+        </div>
+          
+            <div class="form-box register">
+            <form action="#">
+                <h2>Sign Up</h2>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bxs-user'></i></span>
+                    <input type="text"required>
+                    <label>Name</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bxl-gmail' ></i></span>
+                    <input type="email"required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                    <input type="password"required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">I agree to the terms & conditions</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit"class="btn">Sign Up</button>
+                <div class="login-register">
+                    <p>Already have an account?
+                        <a href="#" class="login-link">Sign in</a>
+                    </p>
+                </div>
+            </form>
+            </div>
+    
+        
+        </div>
+        </div>
+        <script src="script.js"></script>
     </body>
 </html>
